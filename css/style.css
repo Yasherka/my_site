@@ -29,13 +29,13 @@
 }
 
 body {
-  min-width: 1200px;
+  max-width: 1200px;
 
   margin: 0 auto;
   padding: 0;
 
   font-family: "Futura", sans-serif;
-  font-size: 17px;
+  font-size: 18px;
   line-height: 22px;
   font-weight: 400;
   color: #ffffff;
@@ -53,6 +53,8 @@ a {
 }
 
 ul {
+  margin: 0;
+  padding: 0;
   list-style: none;
 }
 
@@ -74,7 +76,7 @@ img {
 }
 
 .container {
-  width: 900px;
+  width: 75%;
   margin: 0 auto;
   padding: 0;
 }
@@ -83,7 +85,7 @@ img {
   margin: 0;
   margin-bottom: 50px;
   padding: 0;
-  padding-top: 40px;
+  padding-top: 30px;
 }
 
 .main-nav {
@@ -95,8 +97,6 @@ img {
 }
 
 .main-nav__list {
-  margin: 0;
-  padding: 0;
   width: 300px;
 
   display: flex;
@@ -143,35 +143,43 @@ img {
 .about__img {
   display: inline-block;
   margin: 0;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
 }
 
 .about__wrapper {
   margin: 0;
+  margin-bottom: 50px;
   padding: 0;
   width: 435px;
 }
 
 .about__quote {
   margin: 0;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
   padding: 0;
   font-size: 44px;
   line-height: 46px;
   color: #b0976d;
 }
 
+.about__list {
+  display: flex;
+  justify-content: flex-end;
+}
+
 .about__item {
   margin: 0;
-  margin-left: auto;
-  margin-top: -110px;
   padding: 0;
-  width: 230px;
+  width: 210px;
+}
+
+.about__item:not(:last-of-type) {
+  margin-right: 25px;
 }
 
 .about__icon {
   display: inline-block;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 
 .about__title {
@@ -196,9 +204,6 @@ img {
 .projects__list {
   display: flex;
   flex-wrap: wrap;
-
-  margin: 0;
-  padding: 0;
 }
 
 .projects__item {
@@ -206,34 +211,57 @@ img {
 
   margin: 0;
   padding: 0;
-  width: 450px;
-  height: 450px;
+  width: 50%;
   box-sizing: border-box;
 
   background-color: #000000;
 }
 
 .projects__item--soon {
-  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 8%;
   background-color: #b0976d;
 }
 
 .project__img {
+  display: block;
+  margin: 0;
+  padding: 0;
   opacity: 0.3;
+}
+
+.project__img-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+  z-index: 2;
 }
 
 .project__details {
   position: absolute;
-  top: 100px;
-  left: 0;
-  right: 0;
+  top: 50%;
+  left: 10%;
+  right: 10%;
 
-  margin:  0;
-  padding: 0;
+  opacity: 0;
+  text-align: center;
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  transform: translate(0, -40%);
+  transition: all 0.3s ease-in-out;
+}
+
+.projects__item:hover .project__details {
+  opacity: 1;
+  transform: translate(0, -50%);
+}
+
+.projects__item:hover .project__img {
+  opacity: 0.35;
 }
 
 .project__icon {
@@ -244,50 +272,50 @@ img {
 
 .project__title {
   margin: 0;
-  margin-bottom: 20px;
+  margin-bottom: 8%;
 
-  font-size: 40px;
-  line-height: 50px;
+  font-size: calc((100vw - 700px)/(1200 - 700) * (35 - 25) + 25px);
+  line-height: 100%;
 }
 
 .project__title--soon {
-  margin-bottom: 80px;
+  margin-bottom: 0;
 }
 
 .project__link {
-  position: relative;
-  display: inline-block;
-
-  font-size: 22px;
+  font-size: 20px;
   line-height: 22px;
   color: #b0976d;
 }
 
 .project__link--soon {
+  position: relative;
+  display: block;
+  margin: 0;
+  padding: 0;
+  width: 150px;
+
   font-size: 16px;
   letter-spacing: 3px;
   text-transform: uppercase;
   color: #ffffff;
 }
 
-.project__link::after {
+.project__link--soon::after {
   content: "";
 
   position: absolute;
-  right: 0px;
+  right: 25px;
+  left: 0;
   bottom: -10px;
   left: 0px;
 
   height: 2px;
-  background-color: #b0976d;
+  background-color: #ffffff;
   display: none;
 }
 
-.project__link--soon::after {
-  background-color: #ffffff;
-}
-
-.project__link:hover::after {
+.project__link--soon:hover::after {
   display: block;
 }
 
@@ -354,7 +382,7 @@ img {
   position: absolute;
   top: 0;
   left: 0;
-  
+
   width: 20px;
   height: 30px;
   background-image: url('../img/map-marker-white.svg');
@@ -375,5 +403,5 @@ img {
   font-size: 35px;
   line-height: 40px;
   font-weight: 400;
-  color: #b0976d; 
+  color: #b0976d;
 }
